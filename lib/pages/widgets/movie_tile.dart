@@ -29,10 +29,14 @@ class _MovieTileState extends State<MovieTile> {
             maxHeight: 380, maxWidth: 220, minHeight: 100, minWidth: 80),
         height: isHovered
             ? MediaQuery.of(context).size.height * 1 / 3 + 30
-            : MediaQuery.of(context).size.height * 1 / 4,
+            : (MediaQuery.of(context).size.height * 1 / 4) >= 350
+                ? 350
+                : (MediaQuery.of(context).size.height * 1 / 4),
         width: isHovered
             ? MediaQuery.of(context).size.width * 1 / 7 + 30
-            : MediaQuery.of(context).size.width * 1 / 8,
+            : (MediaQuery.of(context).size.width * 1 / 8) >= 190
+                ? 190
+                : (MediaQuery.of(context).size.width * 1 / 8),
         child: Image.network(
           widget.imageUrl,
         ),
